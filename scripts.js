@@ -51,3 +51,29 @@ const products = [
   { product: 'coffee', price: 10 },
   { product: 'tea', price: '' },
 ]
+
+// Advanced Exercises (Separated console.log Execution)
+console.log("\n--- Advanced Exercises ---");
+
+
+console.log("Logged Products:", products.map(p => p.product));
+
+
+console.log("Filtered by Length:", products.filter(p => p.product.length > 5).map(p => p.product));
+
+
+
+console.log("Price Manipulation:", products.filter(p => p.price && !isNaN(p.price)).reduce((acc, p) => acc + Number(p.price), 0));
+
+
+console.log("Concatenated Names:", products.reduce((acc, p) => acc + p.product + " ", "").trim());
+
+
+console.log("Price Extremes: Highest:", Math.max(...products.filter(p => p.price && !isNaN(p.price)).map(p => Number(p.price))) + ". Lowest:", Math.min(...products.filter(p => p.price && !isNaN(p.price)).map(p => Number(p.price))));
+
+console.log("Transformed Object:", products.reduce((acc, p) => {
+  let key = p.product; // Key for the new object
+  let value = p.price; // Value for the new object
+  acc[key] = value;
+  return acc;
+}, {}));
